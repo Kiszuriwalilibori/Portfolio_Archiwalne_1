@@ -1448,7 +1448,7 @@ body {
 
 @media (max-width: 399px) {
   .Me {
-    font-size: 3.7vw;
+    font-size: 6vw;
   }
 }
 
@@ -1470,13 +1470,13 @@ h1 {
 
 @media (max-width: 767px) {
   h1 {
-    font-size: 6vw;
+    font-size: 8vw;
   }
 }
 
 .contact {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

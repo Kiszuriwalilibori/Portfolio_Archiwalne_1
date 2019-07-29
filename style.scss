@@ -52,7 +52,6 @@ $c_grey: #F5F5F5;
 }
 
 
-
 html{font-size:16px; background-color: $c_blue1;
   
   @include mobile{font-size: 12px;}
@@ -943,7 +942,7 @@ body {
   font-family: 'Patrick Hand SC', cursive;
   font-size: 2vw;
   @include mobile {font-size:3vw;}
-  @include phone {font-size: 3.7vw;}
+  @include phone {font-size: 6vw;}
  
 }
 h1 {
@@ -953,14 +952,14 @@ h1 {
   padding:1vw;
   color: black;
   @include mobile{font-size:5vw;}
-  @include mobile{font-size:6vw;}
+  @include mobile{font-size:8vw;}
   width: 100vw;
   text-align: center;
 }
 
 .contact {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;

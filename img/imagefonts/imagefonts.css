@@ -1,0 +1,21 @@
+@font-face {
+  font-family: wiki;
+  src: url("./imagefonts/icomoon.eot");
+  src: url("./imagefonts/icomoon.ttf") format("truetype");
+  src: url("./imagefonts/icomoon.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.wiki {
+  font-family: wiki;
+}
+
+@font-face {
+  font-family: 'fb';
+  src: url("./imagefonts/icomoon.eot");
+  src: url("./imagefonts/icomoon.eot") format("embedded-opentype"), url("./imagefonts/icomoon.ttf") format("truetype"), url("./imagefonts/icomoon.woff") format("woff"), url("./imagefonts/icomoon.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+/*# sourceMappingURL=imagefonts.css.map */

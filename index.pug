@@ -1,0 +1,136 @@
+include variables.pug
+
+mixin MenuItem(item)
+  li.menu__item
+    a(href= item.link)
+      span.menu-text #{item.title}
+
+mixin createSlidePicture(item)
+  picture
+    each viewport in Viewports
+      source(media = '(max-width: '+ viewport +'px)' srcset='./images/' + item + viewport +'.jpg')
+    img.image(src='./images/' + item + '.JPG' alt="image non-available")
+
+mixin createPagination
+  .pagination
+    each item in SlideData
+      .item
+        span.icon
+mixin AboutMe
+  .Me
+    p Mam na imię Piotr i na codzień niestety NIE pracuję jako Front-end Developer. Ukończyłem studia na Politechnice Warszawskiej (Wydział Chemiczny), które nauczyły mnie logicznego myslenia, jakże przydatnego w pracy programisty. Mniej więcej rok temu podjąłem decyzję o zmianie ścieżki życiowej. Jestem samoukiem, zabrałem się za kursy on-line i rychło zdałem sobie sprawę, że programowanie mnie fascynuje i chcę to robić. Jestem osobą dokładną i zaangażowaną, a praca w sprzedaży nauczyła mnie niepoddawania się trudnościom. Szukam pracy albo stażu w Warszawie, chętnie również przyjmę pojedyncze zlecenia na wykonanie stron. Cały czas podnoszę swoje kwalifikacje, w tej chwili jestem na początku Reduxa.
+mixin introText(item)
+  .intro__square
+        .intro__square--text
+          h1 #{item.title}
+          p #{item.text}
+          a.btn.intro__btn(href='item.link')
+              span.btn-inner Więcej
+mixin projekty(item)
+  each project in Projects
+    a(href= project.link)
+      .project(style= "background-image:url('"+ project.datasrc +"')")
+        .project__comment
+          p.project__name #{project.alt}
+          p.project__description #{project.description}
+          p.project__text #{project.text}
+mixin square(item)
+  .intro__square
+    .intro__square--image
+      picture
+        each viewport in Viewports
+          source(media = '(max-width: '+ viewport +'px)' srcset='./images/square/' + item.prefix + viewport +'.jpg')
+        img.image(src='./images/square/' + item.prefix + '1280' + '.jpg' alt="image non-available")
+mixin page(item)
+    .page(id = item.id)
+      .page__header #{item.header}
+      .page__column 
+        .image--small
+          img(src='./images/emblems/'+item.logo alt = item.logo)
+        h3.page__subtitle #{item.sub}
+        p.page__motto #{item.motto} 
+        h3.page__subtitle.page__subtitle--chapteral #{item.sub1}
+        .page__chapter #{item.chapter1}
+      .page__column
+        .image--large
+          img(src='./images/page/'+ item.foto alt = item.foto)
+        h3.page__subtitle.page__subtitle--chapteral #{item.sub2}
+        .page__chapter #{item.chapter2}
+    
+
+
+
+
+doctype html
+html(lang ='pl')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible' content='ie=edge')
+    link(rel='stylesheet' href='./style.css')
+    link(href="https://fonts.googleapis.com/css?family=Clicker+Script&display=swap&subset=latin-ext" rel="stylesheet")
+    link(href="https://fonts.googleapis.com/css?family=Lato:400,900&display=swap&subset=latin-ext" rel="stylesheet")
+    title Document
+  aside.hamburger
+    img(src = './images/hamburger.svg' alt = 'hamburger')
+  
+  .menu(id ="menu")
+    span.logo.logo-left Piotr Maksymiuk
+    ul#menuList
+      each item in MenuItems
+        +MenuItem(item)
+  main.main-content
+    section(id ='Me')
+      +AboutMe
+    section.skills(id= 'skills')
+     h1 Umiejętności 
+     each skill in Skills
+      .skill
+        .skill__image(style= "background-image:url('"+ skill.datasrcfall +"')")
+        - var n = 0
+            while n < skill.rating
+              .star.star-golden(id = n++)
+        - var n = 0
+            while n < 6 -skill.rating
+              .star.star-grey(id = n++)   
+       
+    section.projects(id = 'projekty')
+      h1 Moje Projekty
+      +projekty(item)
+    
+    section.contact(id ='kontakt')
+      h1.blue Kontakt
+      .contact__items
+        .contact__item
+          i.icon-envelope
+          span piotr.maksymiuk@yahoo.com
+        .contact__item
+          a(href="https://github.com/Kiszuriwalilibori")
+            i.icon-github
+        .contact__item
+          i.icon-phone
+          span +48 669 086 566
+        .contact__item
+          a(href="https://www.facebook.com/piotr.maksymiuk.940")
+            i.icon-fbl
+
+      .adres(id ='draggable')
+        form.adres__form(id = 'contact-form')
+          label(for="name") Imię&nbsp;i&nbsp;nazwisko
+          input(type="text" name = 'name' id = 'name' class='form__input' placeholder= 'Imię i Nazwisko' required )
+          label(for="email") e&nbsp;-&nbsp;mail
+          input(type="email" name ='email' id='email' class='form__input' placeholder= 'adres email' required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" )
+          label(for="name") Treść
+          textarea(name = 'content' id = 'message' class='form__input form__input-text' placeholder ='Wpisz treść wiadomości' required)
+          button.btn.intro__btn.adres__btn(type="submit") 
+            span.btn-inner Wyślij
+          div.message
+            div(id ="status_message")
+  .footer
+    span Copyright © All Rights Reserved Piotr Maksymiuk 2019
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js')
+  script(src='./scripts/script.js')
+  script(src='./scripts/myscript.js')
+  script(src='./scripts/sidebox.js')

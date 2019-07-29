@@ -836,16 +836,13 @@ body {
   right: 0;
   bottom: 0;
   width: 100%;
-  //color: $c_dark;
   color: $c_blue4;
-  //background-color: rgb(9,104,128);
   background-color: $c_modal;
-  //background-color: #343838;
   font-size: 2vw;
   font-weight: 700;
-  //box-shadow:0px 0px 0px 10px $c_dark inset;
   line-height: 1.5;
-  
+  @include mobile {opacity:1}
+ 
   &:hover{
   transition: .8s linear;
   transition-property: all;
@@ -862,6 +859,7 @@ body {
     transition-timing-function: linear;
     transition-delay: 0s;
     opacity : 0;
+    @include mobile {opacity:1}
   }
   
   & a{width: 100%; 

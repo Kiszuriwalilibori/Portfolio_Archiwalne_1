@@ -1295,6 +1295,12 @@ body {
   line-height: 1.5;
 }
 
+@media (max-width: 767px) {
+  .project__comment {
+    opacity: 1;
+  }
+}
+
 .project__comment:hover {
   -webkit-transition: .8s linear;
   transition: .8s linear;
@@ -1321,6 +1327,12 @@ body {
   -webkit-transition-delay: 0s;
           transition-delay: 0s;
   opacity: 0;
+}
+
+@media (max-width: 767px) {
+  .project__comment:not(:hover) {
+    opacity: 1;
+  }
 }
 
 .project__comment a {

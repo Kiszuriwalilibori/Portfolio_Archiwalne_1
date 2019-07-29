@@ -70,67 +70,76 @@ html(lang ='pl')
     link(rel='stylesheet' href='./style.css')
     link(href="https://fonts.googleapis.com/css?family=Clicker+Script&display=swap&subset=latin-ext" rel="stylesheet")
     link(href="https://fonts.googleapis.com/css?family=Lato:400,900&display=swap&subset=latin-ext" rel="stylesheet")
-    title Document
-  aside.hamburger
-    img(src = './images/hamburger.svg' alt = 'hamburger')
-  
-  .menu(id ="menu")
-    span.logo.logo-left Piotr Maksymiuk
-    ul#menuList
-      each item in MenuItems
-        +MenuItem(item)
-  main.main-content
-    section(id ='Me')
-      +AboutMe
-    section.skills(id= 'skills')
-     h1 Umiejętności 
-     each skill in Skills
-      .skill
-        .skill__image(style= "background-image:url('"+ skill.datasrcfall +"')")
-        - var n = 0
-            while n < skill.rating
-              .star.star-golden(id = n++)
-        - var n = 0
-            while n < 6 -skill.rating
-              .star.star-grey(id = n++)   
-       
-    section.projects(id = 'projekty')
-      h1 Moje Projekty
-      +projekty(item)
-    
-    section.contact(id ='kontakt')
-      h1.blue Kontakt
-      .contact__items
-        .contact__item
-          i.icon-envelope
-          span piotr.maksymiuk@yahoo.com
-        .contact__item
-          a(href="https://github.com/Kiszuriwalilibori")
-            i.icon-github
-        .contact__item
-          i.icon-phone
-          span +48 669 086 566
-        .contact__item
-          a(href="https://www.facebook.com/piotr.maksymiuk.940")
-            i.icon-fbl
+    link(href="https://fonts.googleapis.com/css?family=Patrick+Hand+SC&display=swap&subset=latin-ext" rel="stylesheet")
 
-      .adres(id ='draggable')
-        form.adres__form(id = 'contact-form')
-          label(for="name") Imię&nbsp;i&nbsp;nazwisko
-          input(type="text" name = 'name' id = 'name' class='form__input' placeholder= 'Imię i Nazwisko' required )
-          label(for="email") e&nbsp;-&nbsp;mail
-          input(type="email" name ='email' id='email' class='form__input' placeholder= 'adres email' required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" )
-          label(for="name") Treść
-          textarea(name = 'content' id = 'message' class='form__input form__input-text' placeholder ='Wpisz treść wiadomości' required)
-          button.btn.intro__btn.adres__btn(type="submit") 
-            span.btn-inner Wyślij
-          div.message
-            div(id ="status_message")
-  .footer
-    span Copyright © All Rights Reserved Piotr Maksymiuk 2019
-  script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js')
-  script(src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js')
-  script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js')
-  script(src='./scripts/script.js')
-  script(src='./scripts/myscript.js')
-  script(src='./scripts/sidebox.js')
+    title Document
+  body
+    div(id="loader-wrapper")
+      .load
+        hr
+        hr
+        hr
+        hr
+    aside.hamburger
+      img(src = './images/hamburger.svg' alt = 'hamburger')
+    .menu(id ="menu")
+      span.logo.logo-left Piotr Maksymiuk
+      ul#menuList
+        each item in MenuItems
+          +MenuItem(item)
+    main.main-content
+      section(id ='Me')
+        +AboutMe
+      section.skills(id= 'skills')
+        h1 Umiejętności 
+        each skill in Skills
+          .skill
+            .skill__image(style= "background-image:url('"+ skill.datasrcfall +"')")
+            - var n = 0
+                while n < skill.rating
+                  .star.star-golden(id = n++)
+            - var n = 0
+                while n < 6 -skill.rating
+                  .star.star-grey(id = n++)   
+        
+      section.projects(id = 'projekty')
+        h1 Moje Projekty
+        +projekty(item)
+      
+      section.contact(id ='kontakt')
+        h1.blue Kontakt
+        .contact__items
+          .contact__item
+            i.icon-envelope
+            span piotr.maksymiuk@yahoo.com
+          .contact__item
+            a(href="https://github.com/Kiszuriwalilibori")
+              i.icon-github
+          .contact__item
+            i.icon-phone
+            span +48 669 086 566
+          .contact__item
+            a(href="https://www.facebook.com/piotr.maksymiuk.940")
+              i.icon-fbl
+
+        .adres(id ='draggable')
+          form.adres__form(id = 'contact-form')
+            label(for="name") Imię&nbsp;i&nbsp;nazwisko
+            input(type="text" name = 'name' id = 'name' class='form__input' placeholder= 'Imię i Nazwisko' required )
+            label(for="email") e&nbsp;-&nbsp;mail
+            input(type="email" name ='email' id='email' class='form__input' placeholder= 'adres email' required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" )
+            label(for="name") Treść
+            textarea(name = 'content' id = 'message' class='form__input form__input-text' placeholder ='Wpisz treść wiadomości' required)
+            button.btn.intro__btn.adres__btn(type="submit") 
+              span.btn-inner Wyślij
+            div.message
+              div(id ="status_message")
+    .footer
+      span Copyright © All Rights Reserved Piotr Maksymiuk 2019
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js')
+    script(src='./scripts/script.js')
+    script(src='./scripts/myscript.js')
+    script(src='./scripts/sidebox.js')
+    script(src='./scripts/loader.js')

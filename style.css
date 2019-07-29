@@ -142,6 +142,99 @@ table {
   color: #563C7D;
 }
 
+#loader-wrapper {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: #ECF0F1;
+  /* display: none; */
+}
+
+.load {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  /* display: none; */
+}
+
+.load hr {
+  border: 0;
+  margin: 0;
+  width: 40%;
+  height: 40%;
+  position: absolute;
+  border-radius: 50%;
+  -webkit-animation: spin 2s ease infinite;
+          animation: spin 2s ease infinite;
+}
+
+.load :first-child {
+  background: #19A68C;
+  -webkit-animation-delay: -1.5s;
+          animation-delay: -1.5s;
+}
+
+.load :nth-child(2) {
+  background: #F63D3A;
+  -webkit-animation-delay: -1s;
+          animation-delay: -1s;
+}
+
+.load :nth-child(3) {
+  background: #FDA543;
+  -webkit-animation-delay: -0.5s;
+          animation-delay: -0.5s;
+}
+
+.load :last-child {
+  background: #193B48;
+}
+
+@-webkit-keyframes spin {
+  0%, 100% {
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
+  25% {
+    -webkit-transform: translate(160%);
+            transform: translate(160%);
+  }
+  50% {
+    -webkit-transform: translate(160%, 160%);
+            transform: translate(160%, 160%);
+  }
+  75% {
+    -webkit-transform: translate(0, 160%);
+            transform: translate(0, 160%);
+  }
+}
+
+@keyframes spin {
+  0%, 100% {
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
+  25% {
+    -webkit-transform: translate(160%);
+            transform: translate(160%);
+  }
+  50% {
+    -webkit-transform: translate(160%, 160%);
+            transform: translate(160%, 160%);
+  }
+  75% {
+    -webkit-transform: translate(0, 160%);
+            transform: translate(0, 160%);
+  }
+}
+
 a:link {
   text-decoration: none;
 }
@@ -511,6 +604,7 @@ body {
 
 .logo {
   font-family: 'Oregano', cursive;
+  font-family: 'Patrick Hand SC', cursive;
   font-size: 2.5vw;
   color: #00B4CC;
   text-align: left;
@@ -1340,7 +1434,9 @@ body {
   height: 100vh;
   padding: 5%;
   color: #00DFFC;
+  line-height: 1.5;
   font-family: 'Oregano', cursive;
+  font-family: 'Patrick Hand SC', cursive;
   font-size: 2vw;
 }
 
@@ -1358,6 +1454,7 @@ body {
 
 h1 {
   font-family: 'Oregano', cursive;
+  font-family: 'Patrick Hand SC', cursive;
   font-size: 2.5vw;
   padding: 1vw;
   color: black;

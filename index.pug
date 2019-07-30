@@ -41,22 +41,7 @@ mixin square(item)
         each viewport in Viewports
           source(media = '(max-width: '+ viewport +'px)' srcset='./images/square/' + item.prefix + viewport +'.jpg')
         img.image(src='./images/square/' + item.prefix + '1280' + '.jpg' alt="image non-available")
-mixin page(item)
-    .page(id = item.id)
-      .page__header #{item.header}
-      .page__column 
-        .image--small
-          img(src='./images/emblems/'+item.logo alt = item.logo)
-        h3.page__subtitle #{item.sub}
-        p.page__motto #{item.motto} 
-        h3.page__subtitle.page__subtitle--chapteral #{item.sub1}
-        .page__chapter #{item.chapter1}
-      .page__column
-        .image--large
-          img(src='./images/page/'+ item.foto alt = item.foto)
-        h3.page__subtitle.page__subtitle--chapteral #{item.sub2}
-        .page__chapter #{item.chapter2}
-    
+
 
 doctype html
 html(lang ='pl')

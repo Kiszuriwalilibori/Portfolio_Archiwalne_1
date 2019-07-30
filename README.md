@@ -1,4 +1,4 @@
-# Java Script Books
+# About Me
 
 [![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
 
@@ -11,8 +11,8 @@
   
 
 ### Features
-- sorts and filters books
-- maintain sort/filtration status after page reload
+- displays basic informations about author
+
 
 ### Tech
 
@@ -37,7 +37,7 @@ The following tools and resources has been used while developing Google Books
 - Initial version
 #### 1.01
 - added sending emails by Enformed
-- support for calling when pressed on phone number on mobile devices
+- 
 
 
 
@@ -46,3 +46,4 @@ The following tools and resources has been used while developing Google Books
  - revise all, with special attention to styles
  - load fonts from local sources for performance
  - check thoroughly on real mobiles
+ - support for calling when pressed on phone number on mobile devices

@@ -41,7 +41,7 @@ else {TweenMax.to(".menu", 1, {xPercent: -100, ease: Power2.easeInOut, onComplet
 $('.hamburger').on('click', toggleClassMenu)
  
 })();
-
+/*
 var createKonwledgeBase = (function(){
 var articlesOurs =[{h:'Wpływ masażu na organizm i jego układy',text:'Masaż pobudza krążenie i czynność wydalniczą gruczołów skóry, co przyczynia się do jej lepszego odżywienia i zdrowego wyglądu. Usuwa martwe komórki naskórka i likwiduje lub zmniejsza zrosty i zgrubienia. Ponadto powoduje rozbicie tkanki tłuszczowej, co wspomaga proces odchudzania. Masaż przeciwdziała wielu chorobom i uszkodzeniom skóry, zapobiega powstawaniu odleżyn. Dzięki pobudzeniu krwioobiegu masaż powoduje szybsze dostarczanie substancji odżywczych i tlenu do mięśni, a co za tym idzie - ich szybszy rozwój. Wywoływane przez masaż napięcie w mięśniach przeciwdziała ich zanikowi, zwiększa elastyczność i przyspiesza regenerację. Zabieg ten także znacząco zwiększa zdolność mięśni do wysiłku, a po wysiłku odpręża i daje ulgę.Masaż stymuluje układ krwionośny do wzmożonej pracy, co powoduje lepszy przepływ krwi i limfy, a co za tym idzie szybszy transport substancji odżywczych i odprowadzanie szkodliwych produktów przemiany materii, co działa niezwykle dobroczynnie na cały organizm, odżywiając i oczyszczając tkanki. Pobudzając naczynia włosowate, masaż również działa przeciwzakrzepowo.'},
 {h:'Ergonomia - czym jest i czy jest istotna',text:'Warto odpowiedzieć sobie na pytanie, czym jest ergonomia. Jest to dziedzina zajmująca się zapewnieniem bezpieczeństwa w miejscu pracy. Jednocześnie dzięki niej zapewniana jest większa wydajność pracowników.Jak już wspominaliśmy, przedsiębiorcy chcą zminimalizować ryzyko wypadków przy pracy. Dzięki ergonomii bada się warunki pracy pod kątem ich dopasowania do pracownika na danym stanowisku i dzięki temu zapewnia się mu bezpieczeństwo. Dodatkowo dzięki ergonomii można stworzyć nowe, dostosowane stanowiska pracy i naprawiać te, które już istnieją.Ergonomia dzieli się na ergonomię koncepcyjną i korekcyjną. Na czym polega różnica między nimi.Ergonomia koncepcyjna pozwala na stworzenie bezpiecznego miejsca pracy już na etapie planowania. Co to oznacza? Dzięki temu rodzajowi ergonomii to maszyny są dopasowywane do stanowiska i do danego pracownika.Dzięki temu projektanci maszyn już od początku mogą eliminować wady narzędzi i sprawić, by praca z nimi była jak najmniej ryzykowna.Ergonomia ta pomaga również w wyborze odpowiedniej maszyn do przedsiębiorstwa. Specjaliści BHP mogą określić, czy są one odpowiednie dla wykonywania danych czynności i czy warto je zakupić.'}]
@@ -73,7 +73,7 @@ articlesExternals.forEach(element=> {
     $('.bazawiedzy-text h3').addClass('bazawiedzy__header');
 })
 
-})();
+})();*/
 
 
 })
@@ -164,3 +164,12 @@ function removeMessage() {
 }
 
 });
+
+
+window.onload =function() {
+  console.log('loaded');
+  const x = document.getElementById('loader-wrapper');
+  x.remove();
+  
+  };
+  

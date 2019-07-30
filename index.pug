@@ -58,9 +58,6 @@ mixin page(item)
         .page__chapter #{item.chapter2}
     
 
-
-
-
 doctype html
 html(lang ='pl')
   head
@@ -97,10 +94,10 @@ html(lang ='pl')
             .skill__image(style= "background-image:url('"+ skill.datasrcfall +"')")
             - var n = 0
                 while n < skill.rating
-                  .star.star-golden(id = n++)
+                  .star.star-golden(user = n++)
             - var n = 0
                 while n < 6 -skill.rating
-                  .star.star-grey(id = n++)   
+                  .star.star-grey(user = n++)   
         
       section.projects(id = 'projekty')
         h1 Moje Projekty
@@ -139,7 +136,7 @@ html(lang ='pl')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js')
-    script(src='./scripts/script.js')
+    //script(src='./scripts/script.js')
     script(src='./scripts/myscript.js')
     script(src='./scripts/sidebox.js')
-    script(src='./scripts/loader.js')
+    //script(src='./scripts/loader.js')

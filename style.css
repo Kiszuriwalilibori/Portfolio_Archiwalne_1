@@ -1134,14 +1134,12 @@ body {
   background-image: url("./images/3px-tile.png");
   background-repeat: repeat;
   background-repeat: repeat;
-  color: #008C9E;
-  font-weight: bold;
 }
 
 .footer span {
-  border: 2px solid #00B4CC;
-  border-radius: 1vw;
-  padding: 5px 2px;
+  color: #00DFFC;
+  font-weight: 900;
+  padding: 0 1%;
 }
 
 @media (max-width: 767px) {

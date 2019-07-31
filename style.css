@@ -145,8 +145,9 @@ table {
 #loader-wrapper {
   position: fixed;
   top: 0;
+  bottom: 0;
   left: 0;
-  height: 100vh;
+  right: 0;
   z-index: 1000;
   background: #ECF0F1;
   /* display: none; */
@@ -1134,6 +1135,13 @@ body {
   background-repeat: repeat;
   background-repeat: repeat;
   color: #008C9E;
+  font-weight: bold;
+}
+
+.footer span {
+  border: 2px solid #00B4CC;
+  border-radius: 1vw;
+  padding: 5px 2px;
 }
 
 @media (max-width: 767px) {
@@ -1501,7 +1509,7 @@ h1 {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 5% 0 5% 0;
+  padding: 5% 0 10% 0;
   background-color: #343838;
   background: url("./img/pf1368dark.jpg") no-repeat center center fixed;
   background-size: cover;

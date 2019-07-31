@@ -145,9 +145,8 @@ table {
 #loader-wrapper {
   position: fixed;
   top: 0;
-  bottom: 0;
   left: 0;
-  right: 0;
+  height: 100vh;
   z-index: 1000;
   background: #ECF0F1;
   /* display: none; */

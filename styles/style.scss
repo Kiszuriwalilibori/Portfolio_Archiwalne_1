@@ -931,20 +931,19 @@ body {
 .star-grey:after{border-top:10px solid $c_dark;}
 
 .Me {
-  //background: url('./img/pf1368dark.jpg') no-repeat center center fixed;
-  //background-size: cover;
+  
   background-color: $c_dark;
   display: flex;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   padding: 5%;
   color: $c_blue4;
   line-height: 1.5;
-  font-family: 'Oregano', cursive;
   font-family: 'Patrick Hand SC', cursive;
+  
   font-size: 2vw;
   @include mobile {font-size:3vw;}
-  @include phone {font-size: 6vw;}
+  @include phone {font-size: 6vw;line-height:1.2}
  
 }
 .introduction {

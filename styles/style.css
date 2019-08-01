@@ -1466,11 +1466,10 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   padding: 5%;
   color: #00DFFC;
   line-height: 1.5;
-  font-family: 'Oregano', cursive;
   font-family: 'Patrick Hand SC', cursive;
   font-size: 2vw;
 }
@@ -1484,6 +1483,7 @@ body {
 @media (max-width: 399px) {
   .Me {
     font-size: 6vw;
+    line-height: 1.2;
   }
 }
 

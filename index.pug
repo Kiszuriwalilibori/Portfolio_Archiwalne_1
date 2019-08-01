@@ -41,6 +41,17 @@ mixin square(item)
         each viewport in Viewports
           source(media = '(max-width: '+ viewport +'px)' srcset='./images/square/' + item.prefix + viewport +'.jpg')
         img.image(src='./images/square/' + item.prefix + '1280' + '.jpg' alt="image non-available")
+mixin Skills 
+  each skill in Skills
+          .skill
+            .skill__image(style= "background-image:url('"+ skill.datasrcfall +"')")
+            - var n = 0
+                while n < skill.rating
+                  .star.star-golden(user = n++)
+            - var n = 0
+                while n < 6 -skill.rating
+                  .star.star-grey(user = n++)  
+
 
 
 doctype html
@@ -49,8 +60,8 @@ html(lang ='pl')
     meta(charset='UTF-8')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
     meta(http-equiv='X-UA-Compatible' content='ie=edge')
-    link(rel='stylesheet' href='./style.css')
-    link(href="https://fonts.googleapis.com/css?family=Clicker+Script&display=swap&subset=latin-ext" rel="stylesheet")
+    link(rel='stylesheet' href='./styles/style.css')
+    link(href="https://fonts.googleapis.com/css?family=Oregano&display=swap&subset=latin-ext" rel="stylesheet")
     link(href="https://fonts.googleapis.com/css?family=Lato:400,900&display=swap&subset=latin-ext" rel="stylesheet")
     link(href="https://fonts.googleapis.com/css?family=Patrick+Hand+SC&display=swap&subset=latin-ext" rel="stylesheet")
     title Piotr Maksymiuk - About Me
@@ -64,27 +75,23 @@ html(lang ='pl')
     aside.hamburger
       img(src = './images/hamburger.svg' alt = 'hamburger')
     .menu(id ="menu")
-      span.logo.logo-left Piotr Maksymiuk
+      span.logo.logo-left.pf Piotr Maksymiuk
       ul#menuList
         each item in MenuItems
           +MenuItem(item)
     main.main-content
+      section(id = "Intro")
+        .introduction
+          p Piotr Maksymiuk
+          p Web Developer in spe
       section(id ='Me')
         +AboutMe
       section.skills(id= 'skills')
-        h1 Umiejętności 
-        each skill in Skills
-          .skill
-            .skill__image(style= "background-image:url('"+ skill.datasrcfall +"')")
-            - var n = 0
-                while n < skill.rating
-                  .star.star-golden(user = n++)
-            - var n = 0
-                while n < 6 -skill.rating
-                  .star.star-grey(user = n++)   
+        h1.blue Umiejętności 
+        +Skills
         
       section.projects(id = 'projekty')
-        h1 Moje Projekty
+        h1.blue Moje Projekty
         +projekty(item)
       
       section.contact(id ='kontakt')

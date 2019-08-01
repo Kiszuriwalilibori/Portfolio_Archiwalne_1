@@ -1,4 +1,7 @@
-@import './reset.scss';
+@import './reset';
+@import'./img/imagefonts/imagefonts';
+@import './loader';
+@import './oregano/oregano';
 
 a:link {text-decoration: none}
 a:visited {text-decoration: none}
@@ -11,7 +14,32 @@ $pageItemLeftSpace: 5%;
 $colorNormal:rgb(93, 92, 90);
 $pageVerticalMargin: 20vh;
 $breakMobile: 768px;
+$breakPhone: 400px;
 $logoHorSpacing: 5vw;
+$contactSpace: 2vw;
+
+
+$c_dark: #343838;
+$c_blue1: #005F6B;
+$c_blue2: #008C9E;
+$c_blue3: #00B4CC;
+$c_blue4:#00DFFC;
+//$c_modal: rgba(0,180,204, 0.684);
+$c_modal:rgba(52,56,56, 0.7);
+$c_grey: #F5F5F5;
+$c_khaki:#A39C0F; 
+
+
+.blue{color: $c_blue4}
+
+@mixin filter($filters...) {
+  -webkit-filter: $filters;
+  -moz-filter: $filters;
+  -ms-filter: $filters;
+  -o-filter: $filters;
+  filter: $filters;
+}
+
 
 @mixin mobile {
   @media (max-width: #{$breakMobile - 1px}) {
@@ -19,7 +47,14 @@ $logoHorSpacing: 5vw;
   }
 }
 
-html{font-size:16px;
+@mixin phone {
+  @media (max-width: #{$breakPhone - 1px}) {
+    @content;
+  }
+}
+
+
+html{font-size:16px; background-color: $c_blue1;
   
   @include mobile{font-size: 12px;}
 
@@ -40,25 +75,34 @@ html{font-size:16px;
 }
 
 
-@mixin tileBackground{background-color: #404040;
-  background-image: url("../images/3px-tile.png");
+@mixin tileBackground{
+  background-color: $c_dark;
+  background-image: url("./img/3px-tile.png");
   background-repeat: repeat;}
 
 @mixin getGreen {
   transition: color 0.3s ease-out;
-    &:hover{color: rgb(117, 175, 40);}
+    &:hover{color: c_blue3;}
+}
+@mixin flexHorizontalCentered {
+  display: flex;
+  justify-content: center;
 }
 
-@mixin flexHorizontalCentered{
+@mixin flexVerticalCentered {
   display: flex;
-  justify-content: center;}
+  align-items: center;
+}
 
-@mixin flexVerticalCentered{
+@mixin flexCentered {
   display: flex;
-  align-items: center;}
+  align-items: center;
+  justify-content: center;
+}
+
 
 body {
-    font: 14px/2 "Open sans",sans-serif;
+    
     letter-spacing: 0.05em;
     -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -295,7 +339,7 @@ body {
           left: 5px;
           width: 36px;
           height: 2px;
-          background: $localgreen;
+          background: $c_blue4;
           transition: background 0.2s ease;
         }
   
@@ -345,7 +389,6 @@ body {
     }
   }
   
-
 .header {
   height: 60px;
   display:flex;
@@ -358,12 +401,14 @@ body {
 }
 
 .logo{
-  font-family: 'Clicker Script', cursive;
+  font-family: 'Patrick Hand SC', cursive;
   font-size: 2.5vw;
-  @include mobile{font-size:5vw;}
-  color: $localgreen;
+  color: $c_blue3;
+  text-align: left;
 }
-.logo-left{margin-left: $logoHorSpacing; @include mobile{text-align: center; margin-left: 0;}}
+.logo-left{
+  margin-left: $logoHorSpacing; 
+  @include mobile{margin-left:0; padding-left:2px;font-size:5vw;}}
 
 .header__image-area{
   @include flexVerticalCentered(); 
@@ -372,32 +417,32 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
-  background-color: white;
+  background-color: $c_dark;
   top: 0;
   position: sticky;
   z-index:1000;
   display:flex;
-  @include mobile{flex-direction: column; border-bottom: 1px solid $localgreen}
   justify-content: space-between;
   text-align: right;
-  & ul {display: inline; margin-right: $logoHorSpacing; }
+  & ul {display: inline; margin-right: $logoHorSpacing; margin-right: 64px; }
   & li {display: inline-block;
     position: relative;
     text-align: center;
-    padding: 15px 0;
-    @include mobile{margin: -4px 0}}
+    padding: 15px 0;}
   &-text {
     padding: 0 15px;
     text-transform: uppercase;
     font-family: 'Lato', sans-serif;
-    @media (max-width: 600px){font-size:10px; padding: 0 8px}
+    @include mobile{font-size:4vw;line-height:1.5}
+    @include phone{font-size:5vw;line-height:1.5}
+    @media (max-width: 600px){ padding: 0 8px}
   }
   & a {
     display: block;
     padding: 10px 0;
     text-decoration: none;
     padding: 15 15px;
-    border-right: 1px solid whitesmoke;
+    border-right: 1px solid $c_blue3;
   }
 
 @media (max-width: 767px){
@@ -407,7 +452,10 @@ body {
 
   z-index: 1000;
   & ul{display: flex;
-    flex-direction:column; margin-right: 0px; padding: 10px 0}
+    flex-direction:column;
+    align-items: end;
+    margin-right: calc(64px + 3vw); 
+    padding: 10px 0}
   & a{ padding: 0 0;}
 & li{padding:0}
 }
@@ -425,11 +473,16 @@ body {
 
 
 .menu__item span{
-  color: black;
+  //color: black;
+  //color: $c_dark;
+  color:$c_blue3;
+ 
+  
   text-decoration: none;
   transition: color 0.3s ease-out;
-  &:hover{color: rgb(117, 175, 40);}
-  &:link{text-decoration: none; color:black;}
+  //&:hover{color: rgb(117, 175, 40);}
+  &:hover{color: $c_blue4;}
+  &:link{text-decoration: none; color: red;}
 }
 
 .menu__item--hover {
@@ -443,7 +496,7 @@ body {
   bottom: -4px;
   z-index: 203;
   border-radius: 1px;
-  background-color: $localgreen;
+  background-color: $c_blue4;
   animation: menuitemline 1s ease-in-out forwards;
 }}
 
@@ -488,7 +541,7 @@ body {
   background-color: $introBgr;
   align-content: center;
 
-    h2{
+    h1{
       margin: 15% auto 15%;
       font: 900 30px/1.2 "Lato", sans-serif;
       @include getGreen;
@@ -539,12 +592,12 @@ body {
 }
 
 .intro__btn {
-  background: $localgreen;
-  border-color: $localgreen;
-  position:absolute;
-  bottom: 15%;
-  left: 50%;
-  transform: translateX(-50%);
+  background: $c_blue3;
+  border-color: $c_blue3;
+  //position:absolute;
+  //bottom: 15%;
+  //left: 50%;
+//transform: translateX(-50%);
 }
 
 
@@ -629,7 +682,7 @@ body {
     width:60%;
     background-color: transparent;
     text-align: end;
-    z-index:500;
+    z-index:1000;
     font-weight: 900;
     font-size: 60px;
     color:black;
@@ -653,13 +706,28 @@ body {
 }
 
 .adres {
-  margin-left: $pageItemLeftSpace;
+  //margin-left: $pageItemLeftSpace;
+  width:100vw;
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  font-family: "Lato", sans-serif;
+
   &__form{
     display: flex;
     flex-direction: column;
-    width: 180px;
-    & *{margin: 5px 0}}
-  &__btn{position: relative}
+    justify-content:space-evenly;
+    background-color: $c_dark;
+    width:20%;
+    border: 2px solid $c_blue3;
+    border-radius: 2px;
+    margin:2 * $contactSpace;
+    padding: $contactSpace;
+    @include mobile {width: 50vw;}
+   @include phone {width: 75vw;}
+   
+    & * {margin: 1%}}
+  &__btn{position: relative; margin-top:4%}
 }
 
 .page--kontakt-header {
@@ -680,12 +748,12 @@ body {
     left:0;
     z-index:1000;
     width:100%; height:60px; 
-    //background-color: #1d201d;
+    background-color: #1d201d;
     @include tileBackground();
     background-repeat: repeat;
-    color: $localgreen;
-    
-  @include mobile{font-size: 0.8rem}
+
+    & span {color: $c_blue4;font-weight: 900;padding: 0 1%; }
+    @include mobile{font-size: 3vw;}
 
     &__link{
      color:white;
@@ -704,7 +772,6 @@ body {
   column-gap:2%;
   column-rule: 1px solid $localgreen;
 }
-//.bazawiedzy__inner{}
  
 .bazawiedzy-text{ 
   column-count: 3;
@@ -719,8 +786,272 @@ body {
 
 .bazawiedzy__header { font-size: 1rem; color: $localgreen;}
 
-.phone__text{color: $localgreen;}
+.project {
+  height: 21.5vw;
+  width: 33.3333%;
+  @include mobile {width: 50%;height:32.2vw;}
+  @include phone {
+    width: 100%;
+    height: 64vw;
+  }
 
-.successStyle{@extend .btn; border-color: $localgreen; color: $localgreen}
-.failureStyle{@extend .btn; color: orange;border-color: orange;}
-.message{ @include flexHorizontalCentered;}
+  float: left;
+  position:relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &__name {
+    margin: 5% 0;
+    font-size: 1.5vw;
+    @include mobile {font-size:2.5vw;}
+    @include phone {font-size: 5vw;}
+     
+  }
+
+  &__description {
+    margin: 2%;
+    font-size: 1vw;
+    @include mobile {font-size: 2vw;}
+    @include phone {font-size: 4vw;}
+  }
+
+  &__text {
+    margin: 2% 2%;
+    font-size: 1.5vw;
+    @include mobile {font-size:2.5vw;}
+    @include phone {font-size: 5vw;}
+  }
+
+}
+
+
+.projects{margin-left: auto; margin-right: auto; margin-top:30px; text-align:center; padding:5% 0}
+
+
+.project__comment {
+  
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  color: $c_blue4;
+  background-color: $c_modal;
+  font-size: 2vw;
+  font-weight: 700;
+  line-height: 1.5;
+  font-family: "Lato", sans-serif;
+  @include mobile {opacity:1}
+ 
+  &:hover{
+  transition: .8s linear;
+  transition-property: all;
+  transition-duration: 0.8s;
+  transition-timing-function: linear;
+  transition-delay: 0s;
+    opacity : 1;
+  }
+
+  &:not(:hover){
+    transition: .8s linear;
+    transition-property: all;
+    transition-duration: 0.8s;
+    transition-timing-function: linear;
+    transition-delay: 0s;
+    opacity : 0;
+    @include mobile {opacity:1}
+  }
+  
+  & a{width: 100%; 
+    height: 100%; 
+    text-align: center;
+    color:white;
+   // & span{color:white;}
+  }
+}
+
+.skills {
+  //min-height:100vh;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 5% 1%;
+  margin: 0
+}
+
+.skill {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 15vw;
+  height: 7.5vw;
+  @include mobile {width:40vw;height:20vw}
+  @include phone {width: 200px;height: 100px;}
+  border: 1% solid white;
+  margin:1%;
+  border-radius: 2%
+}
+
+.skill__image {
+
+  width: 50%;
+  height:100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.skill__text {
+  margin: 0 auto
+}
+.star {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  position: relative;
+}
+.star:after {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  position: absolute;
+  content: "";
+  top: 3px;
+  left: -5px;
+}
+.star-golden{border-bottom: 10px solid gold;}
+.star-golden:after{border-top: 10px solid gold;}
+.star-grey{border-bottom: 10px solid $c_dark;}
+.star-grey:after{border-top:10px solid $c_dark;}
+
+.Me {
+  //background: url('./img/pf1368dark.jpg') no-repeat center center fixed;
+  //background-size: cover;
+  background-color: $c_dark;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  padding: 5%;
+  color: $c_blue4;
+  line-height: 1.5;
+  font-family: 'Oregano', cursive;
+  font-family: 'Patrick Hand SC', cursive;
+  font-size: 2vw;
+  @include mobile {font-size:3vw;}
+  @include phone {font-size: 6vw;}
+ 
+}
+.introduction {
+  background: url('./img/pf1368dark.jpg') no-repeat center center fixed;
+  background-size: cover;
+  @include flexCentered();
+  flex-direction: column;
+  height: 100vh;
+  padding: 5%;
+  color: $c_blue4;
+  line-height: 1.5;
+  letter-spacing:2px;
+  font-size: 6vw;
+  font-weight: 900;
+  font-family: 'oreganoitalic';
+  @include mobile {font-size:9vw;}
+  @include phone {font-size: 9vw;}
+ 
+}
+
+
+
+
+
+h1 {
+  font-family: 'Oregano', cursive;
+  font-family: 'Patrick Hand SC', cursive;
+  font-size: 2.5vw;
+  padding:1vw;
+  color: black;
+  @include mobile{font-size:5vw;}
+  @include mobile{font-size:8vw;}
+  width: 100vw;
+  text-align: center;
+}
+
+.contact {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5% 0 10% 0;
+  background-color: $c_dark;
+  background: url('./img/pf1368dark.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: $c_blue3;
+
+  &__items {
+    @include flexCentered();
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 90%;
+    box-sizing: border-box;
+    font-size: 1.5vw;
+    background-color: $c_dark;
+    border:2px solid $c_blue4;
+    border-radius:2px;
+    box-shadow: 0 0 30px #333;
+    font-family: "Lato", sans-serif;
+    @include mobile {font-size:3.5vw;}
+    @include phone {font-size: 4vw;}
+  }
+
+  &__item {
+    @include flexCentered();
+    margin: $contactSpace;
+  }
+}
+.form__input {
+
+  display: block;
+  padding: 0 0;
+  font-size: 0.875rem;
+  background-color: $c_grey;
+  height: 35px;
+  border: 2px solid $c_blue2;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .08);
+  transition: border-color, box-shadow ease-in-out .2s, box-shadow ease-in-out .2s;
+  
+  
+  &:focus {
+    border-color: $c_blue4;
+    box-shadow: 0 0 5px -1px $c_blue4;
+
+}
+}
+.form__input-text{height: 70px;}
+
+
+
+
+.fancy {
+  animation: anim1 .7s ease-out;
+  will-change: transform, opacity;
+}
+
+@keyframes anim1 {
+  0% {
+    opacity: 0;
+    transform: translateX(-30rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0rem);
+  }
+}

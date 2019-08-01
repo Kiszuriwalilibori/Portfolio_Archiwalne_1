@@ -657,6 +657,7 @@ body {
   &__form{
     display: flex;
     flex-direction: column;
+    font-family: "Lato", sans-serif;
     width: 180px;
     & *{margin: 5px 0}}
   &__btn{position: relative}

@@ -81,11 +81,6 @@ articlesExternals.forEach(element=> {
 
 
 
-
-
-
-
-
 let form = document.getElementById('contact-form');
 
 form.addEventListener('submit', function(e){

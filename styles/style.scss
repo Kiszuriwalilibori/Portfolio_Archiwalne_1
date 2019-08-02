@@ -19,7 +19,9 @@ $logoHorSpacing: 5vw;
 $contactSpace: 2vw;
 
 
+$c_light:#CECAC0;
 $c_dark: #343838;
+$c_blue0: #283E4A;
 $c_blue1: #005F6B;
 $c_blue2: #008C9E;
 $c_blue3: #00B4CC;
@@ -395,8 +397,8 @@ body {
   justify-content: space-around;
   align-items: center;
   @include tileBackground();
+  background-color:$c_blue0;
   text-align: center;
-  color: $localgreen;
   @media (max-width: 768px){display: none;}
 }
 
@@ -417,7 +419,9 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
+  @include tileBackground();
   background-color: $c_dark;
+  background-color: $c_blue0;
   top: 0;
   position: sticky;
   z-index:1000;
@@ -826,7 +830,14 @@ body {
 }
 
 
-.projects{margin-left: auto; margin-right: auto; margin-top:30px; text-align:center; padding:5% 0}
+.projects {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  text-align: center;
+  padding: 5% 0;
+  min-height:100vh;
+}
 
 
 .project__comment {
@@ -880,7 +891,7 @@ body {
   flex-wrap: wrap;
   width: 100%;
   padding: 5% 1%;
-  margin: 0
+  margin: 0;
 }
 
 .skill {

@@ -1358,6 +1358,11 @@ body {
   margin: 0;
 }
 
+.skills p {
+  color: #00DFFC;
+  font-family: "Lato", sans-serif;
+}
+
 .skill {
   display: -webkit-box;
   display: -ms-flexbox;

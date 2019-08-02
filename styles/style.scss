@@ -849,7 +849,7 @@ body {
   font-weight: 700;
   line-height: 1.5;
   font-family: "Lato", sans-serif;
-  @include mobile {opacity:1}
+  @include mobile {opacity:1; border-top:2px double $c_blue3; border-bottom: 2px double $c_blue3; }
  
   &:hover{
   transition: .8s linear;

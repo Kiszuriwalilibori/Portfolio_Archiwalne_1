@@ -605,10 +605,9 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: #343838;
+  background-color: #283E4A;
   background-image: url("./img/3px-tile.png");
   background-repeat: repeat;
-  background-color: #283E4A;
   text-align: center;
 }
 
@@ -650,11 +649,9 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
-  background-color: #343838;
+  background-color: #283E4A;
   background-image: url("./img/3px-tile.png");
   background-repeat: repeat;
-  background-color: #343838;
-  background-color: #283E4A;
   top: 0;
   position: -webkit-sticky;
   position: sticky;
@@ -1151,8 +1148,7 @@ body {
   z-index: 1000;
   width: 100%;
   height: 60px;
-  background-color: #1d201d;
-  background-color: #343838;
+  background-color: #283E4A;
   background-image: url("./img/3px-tile.png");
   background-repeat: repeat;
   background-repeat: repeat;
@@ -1168,31 +1164,6 @@ body {
   .footer {
     font-size: 3vw;
   }
-}
-
-.footer__link {
-  color: white;
-  text-decoration: none;
-  -webkit-transition: color 0.3s ease-out;
-  transition: color 0.3s ease-out;
-  margin: 0 10px;
-  width: 24px;
-  height: 24px;
-}
-
-.footer__link:hover {
-  color: #75af28;
-}
-
-.footer__link:link {
-  text-decoration: none;
-}
-
-.footer__icon {
-  -o-object-fit: cover;
-     object-fit: cover;
-  width: 24px;
-  height: 24px;
 }
 
 #bazawiedzy .pagechapter div {
@@ -1465,6 +1436,8 @@ body {
 
 .Me {
   background-color: #343838;
+  background-image: url("./img/3px-tile.png");
+  background-repeat: repeat;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

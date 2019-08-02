@@ -77,11 +77,11 @@ html{font-size:16px; background-color: $c_blue1;
 }
 
 
-@mixin tileBackground{
-  background-color: $c_dark;
-  background-image: url("./img/3px-tile.png");
-  background-repeat: repeat;}
-
+  @mixin tileBackground($color){
+    background-color: $color;
+    background-image: url("./img/3px-tile.png");
+    background-repeat: repeat;}
+ 
 @mixin getGreen {
   transition: color 0.3s ease-out;
     &:hover{color: c_blue3;}
@@ -396,8 +396,8 @@ body {
   display:flex;
   justify-content: space-around;
   align-items: center;
-  @include tileBackground();
-  background-color:$c_blue0;
+  @include tileBackground($c_blue0);
+  //background-color:$c_blue0;
   text-align: center;
   @media (max-width: 768px){display: none;}
 }
@@ -419,9 +419,9 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
-  @include tileBackground();
-  background-color: $c_dark;
-  background-color: $c_blue0;
+  @include tileBackground($c_blue0);
+ // background-color: $c_dark;
+  //background-color: $c_blue0;
   top: 0;
   position: sticky;
   z-index:1000;
@@ -752,21 +752,15 @@ body {
     left:0;
     z-index:1000;
     width:100%; height:60px; 
-    background-color: #1d201d;
-    @include tileBackground();
+   // background-color: #1d201d;
+    
+    @include tileBackground($c_blue0);
+    //background-color: $c_blue0;
     background-repeat: repeat;
 
     & span {color: $c_blue4;font-weight: 900;padding: 0 1%; }
     @include mobile{font-size: 3vw;}
 
-    &__link{
-     color:white;
-     @include hoveringToGreen();
-     margin: 0 10px;
-     width:24px;
-     height:24px;
-    }
-    &__icon{object-fit:cover; width: 24px; height:24px;}
 }
 
 #bazawiedzy .pagechapter div{
@@ -942,8 +936,8 @@ body {
 .star-grey:after{border-top:10px solid $c_dark;}
 
 .Me {
-  
-  background-color: $c_dark;
+  @include tileBackground($c_dark);
+  //background-color: $c_dark;
   display: flex;
   align-items: center;
   min-height: 100vh;

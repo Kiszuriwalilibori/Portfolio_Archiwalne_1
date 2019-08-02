@@ -1085,7 +1085,8 @@ body {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
-  background-color: #343838;
+  background-image: -webkit-gradient(linear, left top, right top, from(#005F6B), to(#283E4A));
+  background-image: linear-gradient(to right, #005F6B, #283E4A);
   width: 20%;
   border: 2px solid #00B4CC;
   border-radius: 2px;
@@ -1142,6 +1143,7 @@ body {
           align-items: center;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  font-family: "Lato", sans-serif;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -1572,7 +1574,8 @@ h1 {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-size: 1.5vw;
-  background-color: #343838;
+  background-image: -webkit-gradient(linear, left top, right top, from(#005F6B), to(#283E4A));
+  background-image: linear-gradient(to right, #005F6B, #283E4A);
   border: 2px solid #00DFFC;
   border-radius: 2px;
   -webkit-box-shadow: 0 0 30px #333;

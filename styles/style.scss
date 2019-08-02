@@ -721,7 +721,8 @@ body {
     display: flex;
     flex-direction: column;
     justify-content:space-evenly;
-    background-color: $c_dark;
+    //background-color: $c_dark;
+    background-image: linear-gradient(to right,$c_blue1, $c_blue0);
     width:20%;
     border: 2px solid $c_blue3;
     border-radius: 2px;
@@ -747,6 +748,7 @@ body {
     
     @include flexVerticalCentered();
     justify-content: space-around;
+    font-family: "Lato", sans-serif;
     position: fixed;
     bottom:0;
     left:0;
@@ -1006,7 +1008,7 @@ h1 {
     width: 90%;
     box-sizing: border-box;
     font-size: 1.5vw;
-    background-color: $c_dark;
+    background-image: linear-gradient(to right,$c_blue1, $c_blue0);
     border:2px solid $c_blue4;
     border-radius:2px;
     box-shadow: 0 0 30px #333;

@@ -61,8 +61,6 @@ html(lang ='pl')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
     meta(http-equiv='X-UA-Compatible' content='ie=edge')
     link(rel='stylesheet' href='./styles/style.css')
-    link(href="https://fonts.googleapis.com/css?family=Oregano&display=swap&subset=latin-ext" rel="stylesheet")
-    link(href="https://fonts.googleapis.com/css?family=Lato:400,900&display=swap&subset=latin-ext" rel="stylesheet")
     link(href="https://fonts.googleapis.com/css?family=Patrick+Hand+SC&display=swap&subset=latin-ext" rel="stylesheet")
     title Piotr Maksymiuk - About Me
   body
@@ -83,14 +81,14 @@ html(lang ='pl')
       section(id = "Intro")
         .introduction
           p Piotr Maksymiuk
-          p Web Developer in spe
+          p.draggable Web Developer in spe
       section(id ='Me')
         +AboutMe
       section.skills(id= 'skills')
         h1.blue Umiejętności 
-        p.blue Uwaga co do gwiazdek - traktujcie je orientacyjnie. To raczej przybliżony wyraz mojego może mylnego a na pewno subiektywnego przeświadczenia w kwestii ile mi zostało aby być w czymś naprawdę dobrym, a nie obiektywna ocena bazująca na twardych danych.
         +Skills
-        
+        p.draggable Uwaga co do gwiazdek - traktujcie je orientacyjnie. To raczej przybliżony wyraz mojego może mylnego a na pewno subiektywnego przeświadczenia w kwestii ile mi zostało aby być w czymś naprawdę dobrym, a nie obiektywna ocena bazująca na twardych danych.
+
       section.projects(id = 'projekty')
         h1.blue Moje Projekty
         +projekty(item)
@@ -111,7 +109,7 @@ html(lang ='pl')
             a(href="https://www.facebook.com/piotr.maksymiuk.940")
               i.icon-fbl
 
-        .adres(id ='draggable')
+        .adres.draggable
           form.adres__form(id = 'contact-form')
             label(for="name") Imię&nbsp;i&nbsp;nazwisko
             input(type="text" name = 'name' id = 'name' class='form__input' placeholder= 'Imię i Nazwisko' required )

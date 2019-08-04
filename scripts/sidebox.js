@@ -1,19 +1,34 @@
 
 //bierze element o identyfikatorze element i nadaje  mu klasę className. IIFE, parametry przekazywane na końcu
 
-(function x ( element, className) {var numSteps = 1000;
+
+if (window.innerWidth < 401) {
+  this.console.log(window.innerWidth);
+  const project__descriptions = [...document.getElementsByClassName('project__comment')];
+  this.console.log(project__descriptions);
+  project__descriptions.forEach(item => item.classList.add('draggable'));
+}
+
+
+
+
+
+
+
+
+
+
+(function x ( element, className) {
+
+var numSteps = 1000;
 var boxElement;
 
-
 window.addEventListener("load", function(event) {
-  boxElement = document.querySelector(element);
+  //boxElement = document.querySelector(element);
+  boxElement = [...document.getElementsByClassName(element)];
 
   createObserver();
 }, false);
-
-
-
-
 
 function createObserver() {
     var observer;
@@ -31,8 +46,8 @@ function createObserver() {
   
     observer = new IntersectionObserver(handleIntersect, options);
     
-    
-    observer.observe(boxElement);
+    boxElement.forEach(item=>observer.observe(item));
+    //observer.observe(boxElement);
   }
 
 
@@ -63,5 +78,5 @@ function createObserver() {
  
   ); 
   }
-}('#draggable','fancy'));
+}('draggable','fancy'));
 

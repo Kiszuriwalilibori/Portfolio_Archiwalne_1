@@ -5,17 +5,8 @@
 if (window.innerWidth < 401) {
   this.console.log(window.innerWidth);
   const project__descriptions = [...document.getElementsByClassName('project__comment')];
-  this.console.log(project__descriptions);
   project__descriptions.forEach(item => item.classList.add('draggable'));
 }
-
-
-
-
-
-
-
-
 
 
 (function x ( element, className) {
@@ -24,7 +15,7 @@ var numSteps = 1000;
 var boxElement;
 
 window.addEventListener("load", function(event) {
-  //boxElement = document.querySelector(element);
+  
   boxElement = [...document.getElementsByClassName(element)];
 
   createObserver();
@@ -32,14 +23,10 @@ window.addEventListener("load", function(event) {
 
 function createObserver() {
     var observer;
-  
     var options = {
+      
       root: null,
-    
-     rootMargin: '100px 100px 100px 100px',
-     
-    
-     
+      rootMargin: '100px 100px 100px 100px',
       threshold: buildThresholdList()
      
     };
@@ -47,7 +34,7 @@ function createObserver() {
     observer = new IntersectionObserver(handleIntersect, options);
     
     boxElement.forEach(item=>observer.observe(item));
-    //observer.observe(boxElement);
+   
   }
 
 
@@ -67,7 +54,6 @@ function createObserver() {
   function handleIntersect ( entries, observer) {
     entries.forEach(function(entry) {
       if (entry.intersectionRatio > 0) {
-       
       entry.target.classList.add(className);
       } else {
        entry.target.classList.remove(className);

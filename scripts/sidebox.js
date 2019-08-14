@@ -24,7 +24,7 @@ window.addEventListener("load", function(event) {
 function createObserver() {
     var observer;
     var options = {
-      
+
       root: null,
       rootMargin: '100px 100px 100px 100px',
       threshold: buildThresholdList()
@@ -32,7 +32,6 @@ function createObserver() {
     };
   
     observer = new IntersectionObserver(handleIntersect, options);
-    
     boxElement.forEach(item=>observer.observe(item));
    
   }

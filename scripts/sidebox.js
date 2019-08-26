@@ -1,9 +1,14 @@
 
 //bierze element o identyfikatorze element i nadaje  mu klasę className. IIFE, parametry przekazywane na końcu
+var pm_test = false;
 
+function isMobile() {
+	return (pm_test) ? true : ('ontouchstart' in document.documentElement);
+}
 
-if (window.innerWidth < 401) {
-  this.console.log(window.innerWidth);
+//if (window.innerWidth < 401) {
+  if (isMobile()){
+  //this.console.log(window.innerWidth);
   const project__descriptions = [...document.getElementsByClassName('project__comment')];
   project__descriptions.forEach(item => item.classList.add('draggable'));
 }

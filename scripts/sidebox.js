@@ -7,11 +7,11 @@ function isMobile() {
 }
 
 //if (window.innerWidth < 401) {
-  if (isMobile()){
-  //this.console.log(window.innerWidth);
+  /*if (isMobile()){
+ 
   const project__descriptions = [...document.getElementsByClassName('project__comment')];
   project__descriptions.forEach(item => item.classList.add('draggable'));
-}
+}*/
 
 
 (function x ( element, className) {

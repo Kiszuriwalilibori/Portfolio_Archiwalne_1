@@ -13,8 +13,22 @@ function isMobile() {
   project__descriptions.forEach(item => item.classList.add('draggable'));
 }*/
 
+if (window.innerWidth < 401) {
+  
+ 
+  const project__descriptions = [...document.getElementsByClassName('project__comment')];
+  project__descriptions.forEach(item => item.classList.add('draggable'));
+}
+
+
 
 (function x ( element, className) {
+
+  if (window.innerWidth < 401) {
+    const project__descriptions = [...document.getElementsByClassName('project__comment')];
+    project__descriptions.forEach(item => item.classList.add('draggable'));
+  }
+  
 
 var numSteps = 1000;
 var boxElement;

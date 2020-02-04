@@ -28,7 +28,7 @@ mixin introText(item)
               span.btn-inner Więcej
 mixin projekty(item)
   each project in Projects
-    a(href= project.link)
+    a(href= project.link target='_blank')
       .project(style= "background-image:url('"+ project.datasrc +"')")
         .project__comment
           p.project__name #{project.alt}
@@ -100,13 +100,13 @@ html(lang ='pl')
             i.icon-envelope
             span piotr.maksymiuk@yahoo.com
           .contact__item
-            a(href="https://github.com/Kiszuriwalilibori")
+            a(href="https://github.com/Kiszuriwalilibori" target='_blank' )
               i.icon-github
           .contact__item
             i.icon-phone
             span +48 669 086 566
           .contact__item
-            a(href="https://www.facebook.com/piotr.maksymiuk.940")
+            a(href="https://www.facebook.com/piotr.maksymiuk.940" target='_blank' )
               i.icon-fbl
 
         .adres.draggable
@@ -117,7 +117,7 @@ html(lang ='pl')
             input(type="email" name ='email' id='email' class='form__input' placeholder= 'adres email' required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" )
             label(for="name") Treść
             textarea(name = 'content' id = 'message' class='form__input form__input-text' placeholder ='Wpisz treść wiadomości' required)
-            button.btn.intro__btn.adres__btn(type="submit") 
+            button.btn.intro__btn.adres__btn(type="submit" id="submit_button") 
               span.btn-inner Wyślij
             div.message
               div(id ="status_message")
@@ -126,7 +126,6 @@ html(lang ='pl')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js')
-    //script(src='./scripts/script.js')
     script(src='./scripts/myscript.js')
     script(src='./scripts/sidebox.js')
     script(src='./scripts/loader.js')

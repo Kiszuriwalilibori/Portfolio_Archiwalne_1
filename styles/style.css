@@ -150,7 +150,6 @@ table {
   right: 0;
   z-index: 1000;
   background: #ECF0F1;
-  /* display: none; */
 }
 
 .load {
@@ -161,7 +160,6 @@ table {
           transform: translate(-50%, -50%);
   width: 100px;
   height: 100px;
-  /* display: none; */
 }
 
 .load hr {
@@ -287,6 +285,17 @@ table {
   src: url("./lato/lato-thin-webfont.woff2") format("woff2"), url("./lato/lato-thin-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
+}
+
+/* patrick-hand-sc-regular - latin-ext_latin */
+@font-face {
+  font-family: 'Patrick Hand SC';
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/patrick-hand-sc-v8-latin-ext_latin-regular.eot");
+  /* IE9 Compat Modes */
+  src: local("Patrick Hand SC"), local("PatrickHandSC-Regular"), url("./patrick/patrick-hand-sc-v8-latin-ext_latin-regular.eot?#iefix") format("embedded-opentype"), url("./patrick/patrick-hand-sc-v8-latin-ext_latin-regular.woff2") format("woff2"), url("./patrick/patrick-hand-sc-v8-latin-ext_latin-regular.woff") format("woff"), url("./patrick/patrick-hand-sc-v8-latin-ext_latin-regular.ttf") format("truetype"), url("./patrick/patrick-hand-sc-v8-latin-ext_latin-regular.svg#PatrickHandSC") format("svg");
+  /* Legacy iOS */
 }
 
 a:link {

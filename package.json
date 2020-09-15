@@ -1,0 +1,19 @@
+{
+  "name": "portfolio_archiwalne_1_lifting",
+  "version": "1.0.0",
+  "description": "portfolio archiwalne po liftingu",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Piotr Maksymiuk",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-cssnano": "^2.1.3",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-multi-dest": "^1.3.7",
+    "gulp-uglify-es": "^2.0.0"
+  }
+}

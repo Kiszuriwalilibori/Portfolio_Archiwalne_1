@@ -134,7 +134,7 @@ body {
     z-index: 2;
   }
 
-  &:hover {
+  &:hover,&:focus {
     color: #373737;
     transition: color 0.1s linear 0s;
 
@@ -179,6 +179,7 @@ body {
   z-index: 1000;
   display: none;
   justify-content: space-between;
+  align-items: center;
   text-align: right;
 
   & ul {
@@ -198,6 +199,7 @@ body {
     padding: 0 15px;
     text-transform: uppercase;
     font-family: "Lato", sans-serif;
+    cursor: pointer;
 
     @include mobile {
       font-size: 4vw;
@@ -251,6 +253,7 @@ body {
   color: $c_blue3;
   text-decoration: none;
   transition: color 0.3s ease-out;
+  
 
   &:hover {
     color: $c_blue4;
@@ -261,6 +264,25 @@ body {
     color: red;
   }
 }
+
+.menu__item button {
+  color: $c_blue3;
+  text-decoration: none;
+  transition: color 0.3s ease-out;
+  border-right: 1px solid #00b4cc;
+  background:none;
+  &:hover {
+    color: $c_blue4;
+  }
+
+  &:link {
+    text-decoration: none;
+    color: red;
+  }
+}
+
+
+
 
 .menu__item--hover {
   &::after {

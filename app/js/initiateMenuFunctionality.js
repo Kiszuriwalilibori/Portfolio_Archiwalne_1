@@ -1,3 +1,5 @@
+const { prepareChangeLocation } = require ('./prepareChangeLocation');
+
 module.exports = {
   initiateMenuFunctionality: function initiateMenuFunctionality() {
 
@@ -10,11 +12,17 @@ module.exports = {
       },
     };
 
-    const buttons = document.getElementsByClassName("menu__item");
-    Array.prototype.forEach.call(buttons, (button) =>button.addEventListener("mouseenter", hover.add));
-    Array.prototype.forEach.call(buttons, (button) =>button.addEventListener("mouseleave", hover.remove));
-    Array.prototype.forEach.call(buttons, (button) =>button.addEventListener("touchstart", hover.add));
-    Array.prototype.forEach.call(buttons, (button) =>button.addEventListener("touchend", hover.remove));
+    const menuItems = document.getElementsByClassName("menu__item");
+    Array.prototype.forEach.call(menuItems, (menuItem) =>menuItem.addEventListener("mouseenter", hover.add));
+    Array.prototype.forEach.call(menuItems, (menuItem) =>menuItem.addEventListener("mouseleave", hover.remove));
+    Array.prototype.forEach.call(menuItems, (menuItem) =>menuItem.addEventListener("touchstart", hover.add));
+    Array.prototype.forEach.call(menuItems, (menuItem) =>menuItem.addEventListener("touchend", hover.remove));
+
+    const menuButtons =document.getElementsByClassName("menu__link");
+    console.log(menuButtons);
+
+    prepareChangeLocation(menuButtons);
+
 
 }
 }

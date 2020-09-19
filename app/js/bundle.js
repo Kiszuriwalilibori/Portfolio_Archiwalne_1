@@ -119,6 +119,8 @@ module.exports = {
 
 
 },{}],4:[function(require,module,exports){
+const { prepareChangeLocation } = require ('./prepareChangeLocation');
+
 module.exports = {
   initiateMenuFunctionality: function initiateMenuFunctionality() {
 
@@ -131,16 +133,90 @@ module.exports = {
       },
     };
 
-    const buttons = document.getElementsByClassName("menu__item");
-    Array.prototype.forEach.call(buttons, (button) =>button.addEventListener("mouseenter", hover.add));
-    Array.prototype.forEach.call(buttons, (button) =>button.addEventListener("mouseleave", hover.remove));
-    Array.prototype.forEach.call(buttons, (button) =>button.addEventListener("touchstart", hover.add));
-    Array.prototype.forEach.call(buttons, (button) =>button.addEventListener("touchend", hover.remove));
+    const menuItems = document.getElementsByClassName("menu__item");
+    Array.prototype.forEach.call(menuItems, (menuItem) =>menuItem.addEventListener("mouseenter", hover.add));
+    Array.prototype.forEach.call(menuItems, (menuItem) =>menuItem.addEventListener("mouseleave", hover.remove));
+    Array.prototype.forEach.call(menuItems, (menuItem) =>menuItem.addEventListener("touchstart", hover.add));
+    Array.prototype.forEach.call(menuItems, (menuItem) =>menuItem.addEventListener("touchend", hover.remove));
+
+    const menuButtons =document.getElementsByClassName("menu__link");
+    console.log(menuButtons);
+
+    prepareChangeLocation(menuButtons);
+
 
 }
 }
 
-},{}],5:[function(require,module,exports){
+},{"./prepareChangeLocation":7}],5:[function(require,module,exports){
+const { throttle } = require("./throttle");
+
+function isFunction(x) {
+  return Object.prototype.toString.call(x) == "[object Function]";
+}
+
+function isNode(o) {
+  return typeof Node === "object" ? o instanceof Node : o && typeof o === "object" && typeof o.nodeType === "number" && typeof o.nodeName === "string";
+}
+
+function reportError(err) {
+  try {
+    if (!err instanceof Error) {
+      throw new Error("it is not error object");
+    }
+    console.error(err.name, "\n", "\n", err.message, "\n", "\n", err.stack);
+  } catch (e) {
+    console.log(e.message);
+  }
+}
+
+function getAttributeValue(target, attr) {
+  
+    const item = document.getElementById(target);
+    if(item){
+    const style = item.currentStyle || window.getComputedStyle(item);
+    return style[attr] ? parseInt(style[attr], 10) : 0;
+  } else {
+    return 0;
+  }
+}
+
+module.exports = {
+  isNode: isNode,
+  reportError: reportError,
+  getAttributeValue: getAttributeValue,
+  mountClickAndEnterHandler: function mountClickAndEnterHandler(item, fn) {
+    try {
+      if (!isNode(item)) {
+        throw new Error("item is not a node");
+      }
+      if (!isFunction(fn)) {
+        throw new Error("fn is not a function");
+      }
+      if (!item || !document.body.contains(item)) {
+        throw new Error("item is not a HTML node within document body");
+      }
+      item.addEventListener("click", fn);
+      item.addEventListener("keyup", function (event) {
+        if (event.keyCode === 13) {
+          event.preventDefault();
+          fn(event);
+        }
+      });
+
+      if (item.toUpperCase !== "BUTTON" && !item.hasAttribute("tabindex")) {
+        item.setAttribute("tabindex", "0");
+      }
+    } catch (err) {
+      reportError(err);
+    }
+  },
+  throttled: function throttled(fn, delay) {
+    return typeof throttle !== "undefined" ? throttle(fn, delay) : throttle;
+  },
+};
+
+},{"./throttle":9}],6:[function(require,module,exports){
 const { hideLoader } = require("./hideLoader.js");
 const { initiateEmailService } = require("./initiateEmailService.js");
 const { initiateHamburgerMenuFunctionality } = require ('./initiateHamburgerMenuFunctionality');
@@ -159,7 +235,29 @@ window.onload = function () {
 
 
 
-},{"./hideLoader.js":1,"./initiateEmailService.js":2,"./initiateHamburgerMenuFunctionality":3,"./initiateMenuFunctionality":4,"./prepareSideBox":6}],6:[function(require,module,exports){
+},{"./hideLoader.js":1,"./initiateEmailService.js":2,"./initiateHamburgerMenuFunctionality":3,"./initiateMenuFunctionality":4,"./prepareSideBox":8}],7:[function(require,module,exports){
+const { mountClickAndEnterHandler, throttled, reportError } = require("./lib");
+module.exports = {
+  prepareChangeLocation: function prepareChangeLocation(buttons) {
+    function changeLocation(ev) {
+      try {
+        if (!ev.currentTarget.dataset.target) {
+          throw new Error("event location has not valid dataset");
+        }
+        const intro = document.getElementById("menu");
+        window.location.hash = "";
+        window.location.hash = ev.currentTarget.dataset.target;
+        window.scrollBy(0, -intro.clientHeight);
+      } catch (err) {
+        reportError(err);
+      }
+    }
+
+    Array.prototype.forEach.call(buttons, (button) => mountClickAndEnterHandler(button, throttled(changeLocation, 300)));
+  },
+};
+
+},{"./lib":5}],8:[function(require,module,exports){
 module.exports = {
   prepareSideBox: function prepareSideBox(element, className) {
     if (window.innerWidth < 401) {
@@ -206,4 +304,33 @@ module.exports = {
   },
 };
 
-},{}]},{},[5]);
+},{}],9:[function(require,module,exports){
+module.exports = {
+  throttle: function throttle(func, ms) {
+    let isThrottled = false,
+      savedArgs,
+      savedThis;
+
+    function wrapper() {
+      if (isThrottled) {
+        savedArgs = arguments;
+        savedThis = this;
+        return;
+      }
+
+      func.apply(this, arguments);
+      isThrottled = true;
+
+      setTimeout(function () {
+        isThrottled = false;
+        if (savedArgs) {
+          wrapper.apply(savedThis, savedArgs);
+          savedArgs = savedThis = null;
+        }
+      }, ms);
+    }
+    return wrapper;
+  },
+};
+
+},{}]},{},[6]);

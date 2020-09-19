@@ -37,20 +37,21 @@ The following tools and resources has been used while developing Google Books
 - Initial version
 #### 1.01
 - added sending emails by Enformed
+#### 1.02
+- sections rendered partially covered by header menu in mobile - corrected
 
 
 ### Todos
 
  - revise all, with special attention to styles
  - check thoroughly on real mobiles
+ - fully keyboard navagable
  - support for calling when pressed on phone number on mobile devices 
  - problems with email script
- - target -blank rel noopener 
- - ładuje się w mobile niezupełnie pod kreske - uwzględnić marginesy
- - minimalizacja
  - obrazki z fizjoterapii co tu robią
  - webp
  -  <li class="menu__item"><a href="#Me"><span class="menu-text">O mnie</span></a></li> albo ddodać aria roles
  https://stackoverflow.com/questions/51683761/how-to-fix-lighthouse-links-do-not-have-a-discernible-name
  albo przerobić tak żeby miały zwykły tekst w środku
- - do sprawdzenia nowsze jQuery
+ - do sprawdzenia nowsze jQuery i podciagnąć jQuery lokalnie
+ - menu za skomplikowane w środku - przerobić na zwykły button

@@ -379,13 +379,13 @@ body {
   z-index: 2;
 }
 
-.btn:hover {
+.btn:hover, .btn:focus {
   color: #373737;
   -webkit-transition: color 0.1s linear 0s;
   transition: color 0.1s linear 0s;
 }
 
-.btn:hover::before {
+.btn:hover::before, .btn:focus::before {
   top: 0;
   height: 100%;
   opacity: 1;
@@ -393,7 +393,7 @@ body {
   transition: height 0.2s ease, top 0.2s ease, opacity 0s linear 0s;
 }
 
-.btn:hover::after {
+.btn:hover::after, .btn:focus::after {
   border-color: #373737;
   -webkit-transition: border 0.1s linear 0s;
   transition: border 0.1s linear 0s;
@@ -433,6 +433,9 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   text-align: right;
 }
 
@@ -453,6 +456,7 @@ body {
   padding: 0 15px;
   text-transform: uppercase;
   font-family: "Lato", sans-serif;
+  cursor: pointer;
 }
 
 @media (max-width: 767px) {
@@ -524,6 +528,24 @@ body {
 }
 
 .menu__item span:link {
+  text-decoration: none;
+  color: red;
+}
+
+.menu__item button {
+  color: #00b4cc;
+  text-decoration: none;
+  -webkit-transition: color 0.3s ease-out;
+  transition: color 0.3s ease-out;
+  border-right: 1px solid #00b4cc;
+  background: none;
+}
+
+.menu__item button:hover {
+  color: #00dffc;
+}
+
+.menu__item button:link {
   text-decoration: none;
   color: red;
 }

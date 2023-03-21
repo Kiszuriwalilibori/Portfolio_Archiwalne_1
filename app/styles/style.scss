@@ -4,6 +4,7 @@
 @import "../fonts/oregano/oregano";
 @import "../fonts/lato/lato";
 @import "../fonts/patrick/patrick";
+@import "../fonts/floyd/floyd";
 
 a:link {
   text-decoration: none;
@@ -134,7 +135,8 @@ body {
     z-index: 2;
   }
 
-  &:hover,&:focus {
+  &:hover,
+  &:focus {
     color: #373737;
     transition: color 0.1s linear 0s;
 
@@ -253,7 +255,6 @@ body {
   color: $c_blue3;
   text-decoration: none;
   transition: color 0.3s ease-out;
-  
 
   &:hover {
     color: $c_blue4;
@@ -270,7 +271,7 @@ body {
   text-decoration: none;
   transition: color 0.3s ease-out;
   border-right: 1px solid #00b4cc;
-  background:none;
+  background: none;
   &:hover {
     color: $c_blue4;
   }
@@ -280,9 +281,6 @@ body {
     color: red;
   }
 }
-
-
-
 
 .menu__item--hover {
   &::after {
@@ -673,10 +671,11 @@ body {
   padding: 5%;
   color: $c_blue4;
   line-height: 1.5;
-  letter-spacing: 2px;
-  font-size: 6vw;
-  font-weight: 900;
-  font-family: "oreganoitalic";
+  letter-spacing: 1px;
+  font-size: 4vw;
+  font-weight: 300;
+  // font-family: "oreganoitalic";
+  font-family: "floyd";
 
   @include mobile {
     font-size: 9vw;
